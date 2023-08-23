@@ -1,6 +1,6 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        previousNums = {} # val: index
+        previousNums = {}
         result = []
         
         for index, num in enumerate(nums):
@@ -9,5 +9,6 @@ class Solution(object):
                 result.append(previousNums[diff])
                 result.append(index)
                 return result
+            
             previousNums[num] = index
         
