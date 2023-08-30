@@ -5,20 +5,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        
-        left, total = 0, 0
-        result = float("inf")
+        left = 0
+        result = float('inf')
+        total = 0
         
         for right in range(len(nums)):
-            # sliding window
+            # find the total to comapre the subarray sum to target
             total += nums[right]
             while total >= target:
-                # size of window
                 result = min(result, right - left + 1)
                 total -= nums[left]
                 left += 1
+                
+        return 0 if result == float('inf') else result
             
-            
-        return 0 if result == float("inf") else result
             
         
