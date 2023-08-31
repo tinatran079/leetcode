@@ -1,28 +1,18 @@
 class Solution(object):
-    def countSubstrings(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        # count of palindromic substring
-        res = 0
-        
-        for i in range(len(s)):
-            l = r = i
-            # found a palindrome
-            res += self.countPalindrome(s, l, r)
-            
-            # even length palindrome
-            l = i
-            r = i + 1
-            res += self.countPalindrome(s, l, r)
-                
-        return res
+    def expand(self, s, left, right):
+        count = 0
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            count += 1
+            left -= 1
+            right += 1
+        return count
     
-    def countPalindrome(self, s, l, r):
-        res = 0
-        while l >= 0 and r < len(s) and s[l] == s[r]:
-                res += 1
-                l -= 1
-                r += 1
-        return res
+    def countSubstrings(self, s):
+        total_count = 0
+        
+        for center in range(len(s)):
+            total_count += self.expand(s, center, center)
+            total_count += self.expand(s, center, center + 1)
+            
+        return total_count
+
