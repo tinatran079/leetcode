@@ -4,20 +4,18 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        char_index_map = {}
-        max_length = 0
-        left = 0
+        longest = 0
+        i = 0 
         
-        for right in range(len(s)):
-            if s[right] in char_index_map and char_index_map[s[right]] >= left:
-                left = char_index_map[s[right]] + 1
+        built_chars = set()
+        
+        for j in range(len(s)):
+            while s[j] in built_chars:
+                built_chars.remove(s[i])
+                i += 1
                 
-            char_index_map[s[right]] = right
+            # if not in built_chars
+            built_chars.add(s[j])
+            longest = max(longest, j - i + 1)
             
-            max_length = max(max_length, right - left + 1)
-            
-        return max_length
-                
-        
- 
-        
+        return longest
