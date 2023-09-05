@@ -5,6 +5,9 @@ class Solution(object):
         :rtype: bool
         """
         
-        nums_set = set(nums)
+        # Integer array nums, return true if any value appears at least twice
+        # in the array, and false if every element is unique
         
-        return len(nums_set) != len(nums)
+        set_nums = set(nums)
+        
+        return len(set_nums) != len(nums)
