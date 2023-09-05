@@ -4,19 +4,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # initialize to 1st value of nums
-        maxSub = nums[0]
-        curSum = 0
+        # nums - integer array
+        # find subarray with largest sum, return its sum
+        
+        if len(nums) == 1:
+            return nums[0] # return single element itself
+        
+        max_sum = float('-inf')
+        current_total = 0
         
         for num in nums:
-            # if neg prefix, remove
-            if curSum < 0:
-                curSum = 0
-            # add num to curSum
-            curSum += num
-            maxSub = max(maxSub, curSum)
-        return maxSub
-        
-        
+            current_total += num
+            max_sum = max(max_sum, current_total)
+            
+            if current_total < 0:
+                current_total = 0
+            
+        return max_sum
         
         
