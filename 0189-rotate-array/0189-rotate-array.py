@@ -5,7 +5,7 @@ class Solution(object):
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        
+        # mod k in case out of bounds
         n = len(nums)
         
         k %= n
@@ -13,6 +13,4 @@ class Solution(object):
         nums.reverse()
         
         nums[:k] = reversed(nums[:k])
-        
         nums[k:] = reversed(nums[k:])
-        
