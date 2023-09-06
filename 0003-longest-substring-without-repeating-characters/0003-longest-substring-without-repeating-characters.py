@@ -4,19 +4,17 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        # accumulate the longest window without repeats
-        i = 0 
         result = 0
+        left = 0
         built_char = set()
         
-        for j in range(len(s)):
-            while s[j] in built_char:
-                built_char.remove(s[i])
-                i += 1
-            built_char.add(s[j])
-            result = max(result, j - i + 1)
-            
-        return result
-            
-            
+        for right in range(len(s)):
+            # accumulate char from s in set and check for duplicates
+            while s[right] in built_char:
+                # remove
+                built_char.remove(s[left])
+                left += 1
+            result = max(result, right - left + 1)
+            built_char.add(s[right])
         
+        return result
