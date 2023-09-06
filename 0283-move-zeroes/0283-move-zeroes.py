@@ -4,11 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        # move all 0's to the end of it while maintaning relative order of non-zero elements
-        i, j = 0, 0
+        # two pointers - i (non zero), j - iterates through array
+        l, r = 0, 0
         
-        while j < len(nums):
-            if nums[j] != 0:
-                nums[i], nums[j] = nums[j], nums[i]
-                i += 1
-            j += 1
+        while r < len(nums):
+            if nums[r] != 0:
+                nums[l], nums[r] = nums[r], nums[l] # move the nonzero to the left
+                # increment the left pointer
+                l += 1
+            r += 1
+            
+            
+            
