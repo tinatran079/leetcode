@@ -4,9 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        # l - 0, r = 2, i - iterates
-        l, r = 0, len(nums) - 1
-        i = 0
+        # move all the zeros to the front
+        # move all the 2's to the back
+        # l for the 0's
+        # r for the 2's
+        # i to iterate
+        l, i = 0, 0
+        r = len(nums) - 1
         
         while i <= r:
             if nums[i] == 0:
@@ -17,3 +21,4 @@ class Solution(object):
                 r -= 1
                 i -= 1
             i += 1
+        
