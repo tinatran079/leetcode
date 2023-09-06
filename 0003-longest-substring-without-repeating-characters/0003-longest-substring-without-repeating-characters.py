@@ -5,15 +5,16 @@ class Solution(object):
         :rtype: int
         """
         # accumulate the longest window without repeats
-        left, result = 0, 0
+        i = 0 
+        result = 0
         built_char = set()
         
-        for right in range(len(s)):
-            while s[right] in built_char: # duplicate
-                built_char.remove(s[left])
-                left += 1
-            built_char.add(s[right])
-            result = max(result, right - left + 1)
+        for j in range(len(s)):
+            while s[j] in built_char:
+                built_char.remove(s[i])
+                i += 1
+            built_char.add(s[j])
+            result = max(result, j - i + 1)
             
         return result
             
