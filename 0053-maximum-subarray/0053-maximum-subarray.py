@@ -4,17 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if len(nums) == 1:
-            return nums[0]
-        
-        current_subarray = 0
-        max_subarray = float('-inf')
+        # want to accumulate the sum of the array until it becomes neg
+        current_total = 0
+        max_total = float('-inf')
         
         for num in nums:
-            current_subarray += num
-            max_subarray = max(current_subarray, max_subarray)
+            current_total += num
+            max_total = max(current_total, max_total)
             
-            if current_subarray < 0:
-                current_subarray = 0
+            if current_total < 0:
+                current_total = 0
                 
-        return max_subarray
+        return max_total
+        
