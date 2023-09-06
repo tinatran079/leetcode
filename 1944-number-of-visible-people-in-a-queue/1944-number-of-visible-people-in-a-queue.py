@@ -4,23 +4,15 @@ class Solution(object):
         :type heights: List[int]
         :rtype: List[int]
         """
-        stack = []
         n = len(heights)
         res = [0] * n
-        
-        for i in range(n -1, -1, -1): # start from back:
-            height = heights[i]
-            
-            visible = 0
-            
-            while stack and height > stack[-1]:
-                visible += 1
-                stack.pop()
-                
+        stack = []
+
+        for i in range(n):
+            while stack and heights[i] > heights[stack[-1]]:
+                res[stack.pop()] += 1
             if stack:
-                visible += 1
-            
-            res[i] = visible
-            stack.append(height)
-            
+                res[stack[-1]] += 1
+            stack.append(i)
+
         return res
