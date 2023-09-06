@@ -4,16 +4,16 @@ class Solution(object):
         :type temperatures: List[int]
         :rtype: List[int]
         """
+        stack = [] # temp: indx
         res = [0] * len(temperatures)
-        stack = [] # pair: [temp, index]
         
         for index, temp in enumerate(temperatures):
-            # is stack empty, is temp greater than top of stack?
             while stack and temp > stack[-1][0]:
-                stackT, stackInd = stack.pop()
-                res[stackInd] = (index - stackInd)
+                stackT, stackIndx = stack.pop()
+                res[stackIndx] = index - stackIndx
                 
             stack.append([temp, index])
-            
+        
+        
         return res
         
