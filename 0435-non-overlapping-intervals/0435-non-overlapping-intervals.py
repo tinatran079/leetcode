@@ -4,19 +4,21 @@ class Solution(object):
         :type intervals: List[List[int]]
         :rtype: int
         """
-        # sort by end points!
-        intervals.sort(key = lambda x: x[1])
-        count = 0
-        prevEnd = intervals[0][1]
+        intervals.sort(key = lambda x: x[1]) # sort by ends
+        prevEnd = intervals[0][1] # grab the first end of interval
+        res = 0
         
         for i in range(1, len(intervals)):
-            current_start, current_end = intervals[i] # i = [start, end]
+            # grab the start and end of each interval
+            current_start, current_end = intervals[i]
             
-            if current_start < prevEnd:
-                count += 1
+            # see if there is overalp - compare prevEnd to start of cur
+            if prevEnd > current_start:
+                res += 1
+            
+            # if there is no overlap, update the prevEnd
             else:
                 prevEnd = current_end
                 
-        return count
-         
+        return res
         
