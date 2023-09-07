@@ -4,16 +4,17 @@ class Solution(object):
         :type heights: List[int]
         :rtype: List[int]
         """
-        res = [0] * len(heights)
         stack = []
+        result = [0] * len(heights)
         
         for i in range(len(heights)):
             while stack and heights[i] > heights[stack[-1]]:
-                res[stack.pop()] += 1 # increment count of popped person
+                result[stack.pop()] += 1
                 
             if stack:
-                res[stack[-1]] += 1 # if there is still ppl in front of the cur person, increment
+                result[stack[-1]] += 1
                 
             stack.append(i)
             
-        return res
+        return result
+        
