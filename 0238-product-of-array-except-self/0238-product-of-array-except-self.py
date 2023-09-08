@@ -4,16 +4,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        result = [1] * (len(nums))
+        res = len(nums) * [1]
         
-        prefix = 1
+        left = 1
         for i in range(len(nums)):
-            result[i] = prefix
-            prefix *= nums[i]
+            res[i] = left
+            left *= nums[i]
             
-        postfix = 1
+        right = 1
         for i in range(len(nums) -1, -1, -1):
-            result[i] *= postfix
-            postfix *= nums[i]
-        return result
+            res[i] *= right
+            right *= nums[i]
+            
+        return res
         
+            
