@@ -5,20 +5,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # array of numbers and targett
-        # return MIN LENGTH of subarray whose sum
-        # is greater than or equal to target
+        # RETURN MIN LENGTH of SUBARRAY WHOSE
+        # SUM is >= TARGET, if none return 0
         
-        left = 0
-        result = float('inf')
-        total = 0
+        res = float('inf')
+        cur_sum = 0
+        i = 0
         
-        for right in range(len(nums)):
-            total += nums[right]
-            while total >= target: # valid subarray 
-                total -= nums[left]
-                result = min(result, right - left + 1)
-                left += 1
-        
-        
-        return 0 if result == float('inf') else result
+        for j in range(len(nums)):
+            cur_sum += nums[j]
+            while cur_sum >= target:
+                cur_sum -= nums[i]
+                res = min(res, j - i + 1)
+                i += 1
+                
+        return 0 if res == float('inf') else res
