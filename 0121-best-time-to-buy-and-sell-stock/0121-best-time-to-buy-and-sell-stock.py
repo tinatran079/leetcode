@@ -1,16 +1,19 @@
 class Solution(object):
     def maxProfit(self, prices):
-        l, r = 0, 1
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
         max_profit = 0
-
-        while r < len(prices):
-            # selling is higher than buying
-            if prices[l] < prices[r]:
-                profit = prices[r] - prices[l]
-                max_profit = max(profit, max_profit)
-            # buying is higher than selling:
-            else:
-                l = r
-            r += 1
+        buy, sell = 0, 1 
         
+        while sell < len(prices):
+            if prices[sell] > prices[buy]:
+                max_profit = max(max_profit, prices[sell] - prices[buy])
+            else: # no profit, shift the buy ptr to where sell ptr is, the lowest
+                buy = sell
+            sell += 1 # want to update the Right ptr in both cases
+            
         return max_profit
+                
+            
