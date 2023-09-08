@@ -4,18 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        res = len(nums) * [1]
+        res = [1] * len(nums)
         
-        left = 1
+        prefix = 1
+        
         for i in range(len(nums)):
-            res[i] = left
-            left *= nums[i]
+            res[i] = prefix
+            prefix *= nums[i] # accumulate the prdt of the L
             
-        right = 1
-        for i in range(len(nums) -1, -1, -1):
-            res[i] *= right
-            right *= nums[i]
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            res[i] *= postfix
+            postfix *= nums[i]
             
         return res
-        
-            
