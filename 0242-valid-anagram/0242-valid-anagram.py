@@ -1,13 +1,20 @@
 class Solution(object):
     def isAnagram(self, s, t):
-        return self.char_count(s) == self.char_count(t)
-
-    def char_count(self, str):
-        count = {}
-
-        for char in str:
-            if char not in count:
-                count[char] = 0
-            count[char] += 1
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        return self.count_substrings(s) == self.count_substrings(t)
         
-        return count
+    def count_substrings(self, ana):
+        char_dict = {}
+        for char in ana:
+            if char not in char_dict:
+                char_dict[char] = 0
+            char_dict[char] += 1
+            
+        return char_dict
+            
+        
+        
