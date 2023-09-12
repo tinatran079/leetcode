@@ -4,17 +4,15 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        result = 0
-        left = 0
+        res = 0
         built_char = set()
+        left = 0
         
         for right in range(len(s)):
-            # accumulate char from s in set and check for duplicates
             while s[right] in built_char:
-                # remove
                 built_char.remove(s[left])
                 left += 1
-            result = max(result, right - left + 1)
+            res = max(res, right - left + 1)
             built_char.add(s[right])
-        
-        return result
+            
+        return res
