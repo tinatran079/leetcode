@@ -5,17 +5,17 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        count = {} # char: count
-        res = 0 # longest substring
+        # return the longest substring containing the same letter
+        maxLen = 0
+        # hash map to keep track of all char
+        count = {}
         l = 0
         
         for r in range(len(s)):
             count[s[r]] = 1 + count.get(s[r], 0)
-            # make sure current window is not valid
-            while (r - l + 1) - max(count.values()) > k:
+            while (r-l+1) - max(count.values()) > k: # window not valid
                 count[s[l]] -= 1
                 l += 1
-            res = max(res, r - l + 1)
-            
-        return res
-        
+            maxLen = max(maxLen, r - l +1)
+    
+        return maxLen
