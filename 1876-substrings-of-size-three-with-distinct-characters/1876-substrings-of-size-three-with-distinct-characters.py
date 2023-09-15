@@ -14,7 +14,9 @@ class Solution(object):
             # current substring window
             current = s[i-2:i+1] #[0-2]
             
-            if current[0] != current[1] and current[1] != current[2] and current[0] != current[2]:
+            # use a set
+            currentSet = set(current)
+            if len(currentSet) == 3:
                 count += 1
                 
         return count
