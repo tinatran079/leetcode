@@ -8,29 +8,28 @@ class Solution(object):
         if len(p) > len(s):
             return []
         
-        pCount, sCount = {}, {}
+        sCount, pCount = {}, {}
         res = []
         
-        for i in range(len(p)):
-            pCount[p[i]] = 1 + pCount.get(p[i], 0)
+        for i in range(len(p)): # get the first subarray
             sCount[s[i]] = 1 + sCount.get(s[i], 0)
+            pCount[p[i]] = 1 + pCount.get(p[i], 0)
             
         res = [0] if sCount == pCount else []
-            
-        # check for rest of subarray
+    
+        # rest of subarray
         left = 0
         
-        for right in range(len(p), len(s)): # slide the window over
+        for right in range(len(p), len(s)):
             sCount[s[right]] = 1 + sCount.get(s[right], 0)
             sCount[s[left]] -= 1
             
             if sCount[s[left]] == 0:
                 sCount.pop(s[left])
+                
             left += 1
             if sCount == pCount:
                 res.append(left)
-            
+                
         return res
-            
-            
-            
+        
