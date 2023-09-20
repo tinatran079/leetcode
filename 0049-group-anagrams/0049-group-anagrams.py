@@ -15,3 +15,4 @@ class Solution(object):
                 anagrams[sorted_s] = [s]
                 
         return list(anagrams.values())
+        
