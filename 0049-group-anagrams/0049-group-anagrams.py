@@ -6,13 +6,14 @@ class Solution(object):
         """
         anagrams = {}
         
+        
         for s in strs:
-            sorted_s = ''.join(sorted(s))
+            s_sort = ''.join(sorted(s))
             
-            if sorted_s in anagrams:
-                anagrams[sorted_s].append(s)
+            if s_sort in anagrams:
+                anagrams[s_sort].append(s)
             else:
-                anagrams[sorted_s] = [s]
+                anagrams[s_sort] = [s]
                 
         return list(anagrams.values())
-        
+            
