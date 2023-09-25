@@ -4,9 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        # given string s, return longest palindromic substring ins
-        # need to account for odd and even length substrings
-        res = ""
+        res = ''
         resLen = 0
         
         for i in range(len(s)):
@@ -14,17 +12,17 @@ class Solution(object):
             while l >= 0 and r < len(s) and s[l] == s[r]:
                 if (r - l + 1) > resLen:
                     res = s[l:r+1]
-                    resLen = r - l + 1 # update that substring length / window
+                    resLen = r - l + 1
                 l -= 1
                 r += 1
-                
             l, r = i, i + 1
             while l >= 0 and r < len(s) and s[l] == s[r]:
                 if (r - l + 1) > resLen:
                     res = s[l:r+1]
-                    resLen = r - l + 1 # update that substring length / window
+                    resLen = r - l + 1
                 l -= 1
                 r += 1
                 
         return res
+                    
         
