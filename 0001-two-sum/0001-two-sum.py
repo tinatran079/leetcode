@@ -1,14 +1,19 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        result = []
-        
-        prev = {} # indx: num
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        prev = {}
+        res = []
         
         for index, num in enumerate(nums):
             diff = target - num
             if diff in prev:
-                result.append(prev[diff])
-                result.append(index)
-                return result
+                res.append(index)
+                res.append(prev[diff])
             prev[num] = index
-        
+            
+        return res
+                
