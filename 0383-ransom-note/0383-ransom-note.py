@@ -5,16 +5,21 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        magazine_counts = [0] * 26
-
-        for letter in magazine:
-            magazine_counts[ord(letter) - ord('a')] += 1
-
-        for letter in ransomNote:
-            index = ord(letter) - ord('a')
-            if magazine_counts[index] > 0:
-                magazine_counts[index] -= 1
-            else:
-                return False
+        ransomCount = self.countChar(ransomNote)
+        magazineCount = self.countChar(magazine)
         
+        for char, count in ransomCount.items():
+            if char not in magazineCount or magazineCount[char] < count:
+                return False
         return True
+        
+    
+    
+    def countChar(self, str):
+        dict = {}
+        for s in str:
+            if s not in dict:
+                dict[s] = 0
+            dict[s] += 1
+        return dict
+            
