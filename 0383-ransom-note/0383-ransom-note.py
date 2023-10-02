@@ -13,8 +13,8 @@ class Solution(object):
                 return False
         return True
         
-    
-    
+        
+        
     def countChar(self, str):
         dict = {}
         for s in str:
@@ -22,4 +22,4 @@ class Solution(object):
                 dict[s] = 0
             dict[s] += 1
         return dict
-            
+        
