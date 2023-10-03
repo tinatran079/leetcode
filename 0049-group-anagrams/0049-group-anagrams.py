@@ -4,16 +4,13 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        anagrams = {} # ana:[its anas]
+        anagrams = {}
         
         for s in strs:
-            sSort = ''.join(sorted(s))
-            
-            if sSort in anagrams:
-                anagrams[sSort].append(s)
+            sortedS = ''.join(sorted(s))
+            if sortedS in anagrams:
+                anagrams[sortedS].append(s)
             else:
-                anagrams[sSort] = [s]
+                anagrams[sortedS] = [s]
         return list(anagrams.values())
-                
-            
         
