@@ -5,7 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        prev = {}
+        prev = {} # num: index
         res = []
         
         for index, num in enumerate(nums):
@@ -13,7 +13,8 @@ class Solution(object):
             if diff in prev:
                 res.append(index)
                 res.append(prev[diff])
-            prev[num] = index
-            
-        return res
+                return res
+            else:
+                prev[num] = index
                 
+    
