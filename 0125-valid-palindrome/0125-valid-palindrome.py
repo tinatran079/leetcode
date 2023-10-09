@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        fixedS = ''
+        fixedS = ""
         
         for char in s:
             if char.isalpha() or char.isnumeric():
@@ -18,9 +18,8 @@ class Solution(object):
         while left <= right:
             if fixedS[left] != fixedS[right]:
                 return False
-            else:
-                left += 1
-                right -= 1
-                
+            left += 1
+            right -= 1
+            
         return True
         
