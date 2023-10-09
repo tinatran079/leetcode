@@ -4,19 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # find subarray with the largest sum, and return its SUM
-        
-        max_sum = float('-inf')
-        cur_sum = 0
+        maxSum = float('-inf')
+        curSum = 0
         
         for num in nums:
-            cur_sum += num
-            max_sum = max(max_sum, cur_sum)
+            curSum += num
+            maxSum = max(maxSum, curSum)
             
-            if cur_sum < 0:
-                cur_sum = 0
-                
-        return max_sum
+            if curSum < 0:
+                curSum = 0
             
-            
+        return maxSum
         
