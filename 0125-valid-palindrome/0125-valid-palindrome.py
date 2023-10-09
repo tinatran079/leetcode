@@ -4,25 +4,23 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        # make a new string of only alphanumeric char
-        # lowercase the new string
-        # have 2 ptrs at each end until it meets in middle
-        
-        fixedS = ""
+        fixedS = ''
         
         for char in s:
-            if char.isalpha() or char.isdigit():
+            if char.isalpha() or char.isnumeric():
                 fixedS += char
                 
         fixedS = fixedS.lower()
         
-        l = 0
-        r = len(fixedS) - 1
+        left = 0
+        right = len(fixedS) - 1
         
-        while l <= r:
-            if fixedS[l] != fixedS[r]:
+        while left <= right:
+            if fixedS[left] != fixedS[right]:
                 return False
-            l += 1
-            r -= 1
+            else:
+                left += 1
+                right -= 1
+                
         return True
         
