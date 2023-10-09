@@ -5,16 +5,15 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        prev = {}
+        dict = {} # num:index
         res = []
         
         for index, num in enumerate(nums):
-            diff = target - num
-            if diff in prev:
+            complement = target - num # complement + num = target
+            if complement in dict:
                 res.append(index)
-                res.append(prev[diff])
+                res.append(dict[complement])
                 return res
             else:
-                prev[num] = index
-                
+                dict[num] = index
         
