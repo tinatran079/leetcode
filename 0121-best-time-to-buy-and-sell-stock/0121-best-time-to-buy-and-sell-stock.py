@@ -4,16 +4,16 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        maxProfit = 0
+        # buy low, sell high
         buy = 0
         sell = 1
+        maxProfit = 0
         
         while sell < len(prices):
-            if prices[sell] > prices[buy]: # profit
+            if prices[buy] < prices[sell]:
                 maxProfit = max(maxProfit, prices[sell] - prices[buy])
             else:
-                buy = sell # update pointer bc sell is less than buy
+                buy = sell
             sell += 1
             
         return maxProfit
-        
