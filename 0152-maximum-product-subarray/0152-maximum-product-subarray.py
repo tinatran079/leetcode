@@ -4,18 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        maxNums = nums[0]
-        minNums = nums[0]
+        # subarray with the largest product
+        minPrdt = nums[0]
+        maxPrdt = nums[0]
         res = nums[0]
         
         for i in range(1, len(nums)):
             if nums[i] < 0:
-                maxNums, minNums = minNums, maxNums
+                minPrdt, maxPrdt = maxPrdt, minPrdt
+            maxPrdt = max(nums[i], nums[i] * maxPrdt)
+            minPrdt = min(nums[i], nums[i] * minPrdt)
             
-            maxNums = max(nums[i], maxNums * nums[i])
-            minNums = min(nums[i], minNums * nums[i])
-            
-            res = max(res, maxNums)
+            res = max(res, maxPrdt)
             
         return res
-        
