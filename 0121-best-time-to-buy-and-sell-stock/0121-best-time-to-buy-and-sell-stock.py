@@ -5,15 +5,17 @@ class Solution(object):
         :rtype: int
         """
         # buy low, sell high
+        # profit if prices[sell] > prices[buy]
+        
         buy = 0
         sell = 1
-        maxProfit = 0
+        maxP = 0
         
         while sell < len(prices):
-            if prices[buy] < prices[sell]:
-                maxProfit = max(maxProfit, prices[sell] - prices[buy])
+            if prices[sell] > prices[buy]:
+                maxP = max(maxP, prices[sell] - prices[buy])
             else:
                 buy = sell
             sell += 1
             
-        return maxProfit
+        return maxP
