@@ -16,7 +16,7 @@ class Solution(object):
                 res.append(nums1[i])
                 i += 1
                 j += 1
-            elif nums1[i] < nums2[j]:
+            elif nums1[i] < nums2[j]: # nums[i] is smaller, so want to increment
                 i += 1
             else:
                 j += 1
