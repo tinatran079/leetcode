@@ -4,7 +4,7 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        dict = {} # anagram: []
+        dict = {}
         
         for str in strs:
             sortedStr = ''.join(sorted(str))
@@ -14,5 +14,3 @@ class Solution(object):
                 dict[sortedStr] = [str]
                 
         return list(dict.values())
-    
-        
