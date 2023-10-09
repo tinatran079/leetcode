@@ -1,8 +1,9 @@
 class Solution(object):
     def isValid(self, s):
-        if len(s) % 2 != 0:
-            return False
-        
+        """
+        :type s: str
+        :rtype: bool
+        """
         stack = []
         
         for char in s:
@@ -16,5 +17,6 @@ class Solution(object):
                 stack.pop()
             else:
                 return False
-                
+        
         return len(stack) == 0
+        
