@@ -5,16 +5,15 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        return self.count_substrings(s) == self.count_substrings(t)
+        return self.countChar(s) == self.countChar(t)
         
-    def count_substrings(self, ana):
-        char_dict = {}
-        for char in ana:
-            if char not in char_dict:
-                char_dict[char] = 0
-            char_dict[char] += 1
+        
+        
+    def countChar(self, anagram):
+        dict = {} # char: count
+        for char in anagram:
+            if char not in dict:
+                dict[char] = 0
+            dict[char] += 1
             
-        return char_dict
-            
-        
-        
+        return dict
