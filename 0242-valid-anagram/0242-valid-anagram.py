@@ -7,12 +7,12 @@ class Solution(object):
         """
         return self.countChar(s) == self.countChar(t)
         
-    def countChar(self, anagrams):
-        dict = {}
-        for char in anagrams:
+        
+    def countChar(self, string):
+        dict = {} # char: count
+        
+        for char in string:
             if char not in dict:
                 dict[char] = 0
             dict[char] += 1
-            
         return dict
-        
