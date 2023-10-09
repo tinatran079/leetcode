@@ -4,17 +4,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        numsMin = nums[0]
-        numsMax = nums[0]
+        maxNums = nums[0]
+        minNums = nums[0]
         res = nums[0]
         
         for i in range(1, len(nums)):
             if nums[i] < 0:
-                numsMin, numsMax = numsMax, numsMin
-            numsMax = max(nums[i], nums[i]*numsMax)
-            numsMin = min(nums[i], nums[i]*numsMin)
+                maxNums, minNums = minNums, maxNums
             
-            res = max(res, numsMax)
+            maxNums = max(nums[i], maxNums * nums[i])
+            minNums = min(nums[i], minNums * nums[i])
+            
+            res = max(res, maxNums)
             
         return res
         
