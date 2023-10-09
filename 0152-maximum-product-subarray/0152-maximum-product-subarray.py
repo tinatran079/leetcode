@@ -11,7 +11,7 @@ class Solution(object):
         res = nums[0]
         
         for i in range(1, len(nums)):
-            if nums[i] < 0:
+            if nums[i] < 0: # encounter negative number
                 numsMax, numsMin = numsMin, numsMax
             numsMax = max(nums[i], numsMax * nums[i])
             numsMin = min(nums[i], numsMin * nums[i])
