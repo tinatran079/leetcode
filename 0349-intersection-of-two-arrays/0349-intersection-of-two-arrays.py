@@ -14,5 +14,5 @@ class Solution(object):
         for num in nums2:
             if num in items:
                 res.append(num)
-                
         return list(set(res))
+        
