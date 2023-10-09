@@ -16,4 +16,3 @@ class Solution(object):
                 res.append(num)
                 
         return list(set(res))
-        
