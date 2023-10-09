@@ -15,6 +15,3 @@ class Solution(object):
                 curSum = 0
                 
         return maxSum
-        
-        
-        
