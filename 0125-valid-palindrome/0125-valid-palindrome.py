@@ -4,12 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        fixedS = ""
+        # all lowercase
+        # remove all non-alphanumeric char
+        # reads same foward and backward
+        
+        fixedS = ''
         
         for char in s:
             if char.isalpha() or char.isnumeric():
                 fixedS += char
-                
+        
         fixedS = fixedS.lower()
         
         left = 0
