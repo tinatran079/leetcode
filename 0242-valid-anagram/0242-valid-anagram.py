@@ -5,12 +5,14 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        # compare each string's char and its counts
+        # if equal, return True, otherwise False
         return self.countChar(s) == self.countChar(t)
         
-        
+    
+    
     def countChar(self, string):
-        dict = {} # char: count
-        
+        dict = {}
         for char in string:
             if char not in dict:
                 dict[char] = 0
