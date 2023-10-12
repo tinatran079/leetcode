@@ -6,6 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
+        
         items = set()
         
         for item in nums1:
@@ -14,5 +15,5 @@ class Solution(object):
         for num in nums2:
             if num in items:
                 res.append(num)
-        return list(set(res))
         
+        return set(list(res))
