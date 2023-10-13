@@ -4,10 +4,12 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        maxP = 0
+        # buy before you sell
+        # prices[buy] < prices[sell] : profit
         
         buy = 0
         sell = 1
+        maxP = 0
         
         while sell < len(prices):
             if prices[buy] < prices[sell]:
