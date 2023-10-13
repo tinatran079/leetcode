@@ -5,12 +5,15 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        # return true if t is an anagram of s
+        # compare s's and t's dictionary
         return self.countChar(s) == self.countChar(t)
         
         
+        
+    # function to keep track of each char and its count
     def countChar(self, string):
         dict = {} # char : count
+        
         for char in string:
             if char not in dict:
                 dict[char] = 0
