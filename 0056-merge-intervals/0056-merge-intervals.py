@@ -4,18 +4,22 @@ class Solution(object):
         :type intervals: List[List[int]]
         :rtype: List[List[int]]
         """
-        # need to sort the intervals first!!!
-        intervals.sort(key = lambda x: x[0]) # sort by the first val in intervals
-        merged = [intervals[0]]
+        # sort the intervals
+        intervals.sort(key = lambda x: x[0]) # sort by first val in intervals
+        merged = [intervals[0]] # intialize
         
-        for i in range(1, len(intervals)): # iterate through each interval in intervals
+        for i in range(1, len(intervals)):
             current_interval = intervals[i]
-            last_merged_interval = merged[-1] # grab the last interval in merged
+            last_interval = merged[-1]
             
-            if last_merged_interval[1] >= current_interval[0]:
-                last_merged_interval[1] = (max(last_merged_interval[1], current_interval[1]))
-                
+            if last_interval[1] >= current_interval[0]:
+                last_interval[1] = (max(last_interval[1], current_interval[1]))
             else:
                 merged.append(current_interval)
-            
+                
         return merged
+    
+    #[1,3],[2,6]
+    # [1, 6] take larger of ending values
+    # check current and next interval
+    # if the beg of next interval is less than current interval's end, merge.
