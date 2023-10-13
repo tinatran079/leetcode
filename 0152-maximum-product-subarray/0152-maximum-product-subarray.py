@@ -11,7 +11,7 @@ class Solution(object):
         for i in range(1, len(nums)):
             if nums[i] < 0:
                 maxPrdt, minPrdt = minPrdt, maxPrdt
-                
+            
             maxPrdt = max(nums[i], nums[i]*maxPrdt)
             minPrdt = min(nums[i], nums[i]*minPrdt)
             
