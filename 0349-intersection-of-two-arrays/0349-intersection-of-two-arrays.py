@@ -5,10 +5,9 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
-        # given 2 integer arrays, return an array of their intersection
+        res = []
         
         items = set()
-        res = []
         
         for item in nums1:
             items.add(item)
@@ -16,6 +15,5 @@ class Solution(object):
         for num in nums2:
             if num in items:
                 res.append(num)
-                
+        
         return set(list(res))
-                
