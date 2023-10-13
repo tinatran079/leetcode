@@ -4,16 +4,17 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        # all lowercase
+        # convert all upper to lowercase
         # remove all non-alphanumeric char
-        # reads same foward and backward
+        # if read same foward and backward, return True
         
         fixedS = ''
         
         for char in s:
             if char.isalpha() or char.isnumeric():
                 fixedS += char
-        
+                
+        # lowercase
         fixedS = fixedS.lower()
         
         left = 0
@@ -22,7 +23,9 @@ class Solution(object):
         while left <= right:
             if fixedS[left] != fixedS[right]:
                 return False
-            left += 1
-            right -= 1
-            
+            else:
+                left += 1
+                right -= 1
+                
         return True
+        
