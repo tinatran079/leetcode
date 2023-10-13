@@ -9,8 +9,8 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        #   A -> B -> C -> D
-        #    P   C.   N
+        #    1 -> 2 -> 3 -> 4 -> 5
+        #P    C   N
         
         cur = head
         prev = None
@@ -23,4 +23,3 @@ class Solution(object):
             
         return prev
             
-        
