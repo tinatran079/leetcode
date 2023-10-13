@@ -15,11 +15,11 @@ class Solution(object):
         
         
         
-    def countChar(self, str):
+    def countChar(self, string):
         dict = {}
-        for s in str:
-            if s not in dict:
-                dict[s] = 0
-            dict[s] += 1
+        for char in string:
+            if char not in dict:
+                dict[char] = 0
+            dict[char] += 1
         return dict
         
