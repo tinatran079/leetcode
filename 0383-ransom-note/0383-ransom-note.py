@@ -5,6 +5,7 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
+        # if ransomNote can be constructed by using letters from magazine
         ransomCount = self.countChar(ransomNote)
         magazineCount = self.countChar(magazine)
         
@@ -12,7 +13,6 @@ class Solution(object):
             if char not in magazineCount or magazineCount[char] < count:
                 return False
         return True
-        
         
         
     def countChar(self, string):
