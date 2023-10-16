@@ -5,6 +5,8 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
+        # return an array of their intersection
+        
         res = []
         
         items = set()
@@ -15,5 +17,5 @@ class Solution(object):
         for num in nums2:
             if num in items:
                 res.append(num)
-        
-        return set(list(res))
+                
+        return list(set(res))
