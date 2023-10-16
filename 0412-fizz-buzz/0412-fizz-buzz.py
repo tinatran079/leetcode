@@ -15,5 +15,4 @@ class Solution(object):
                 res.append("Buzz")
             else:
                 res.append(str(i))
-        
         return res
