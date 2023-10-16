@@ -4,10 +4,14 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
+        # remove all non-alpha numeric characters
+        # convert to all lowercase
+        # 2 pointers
+        
         fixedS = ''
         
         for char in s:
-            if char.isalpha() or char.isnumeric():
+            if char.isnumeric() or char.isalpha():
                 fixedS += char
                 
         fixedS = fixedS.lower()
@@ -20,5 +24,4 @@ class Solution(object):
                 return False
             left += 1
             right -= 1
-            
         return True
