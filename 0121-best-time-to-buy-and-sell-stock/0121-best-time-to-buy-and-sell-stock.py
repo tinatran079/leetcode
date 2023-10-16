@@ -4,6 +4,9 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
+        # buy before selling
+        # profit if prices[sell] > prices[buy]
+        
         buy = 0
         sell = 1
         maxP = 0
@@ -14,5 +17,5 @@ class Solution(object):
             else:
                 buy = sell
             sell += 1
-            
+        
         return maxP
