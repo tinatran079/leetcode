@@ -7,7 +7,7 @@ class Solution(object):
         stack = []
         
         for char in s:
-            if char == '(' or char =='{' or char == '[':
+            if char == '(' or char == '[' or char == '{':
                 stack.append(char)
             elif stack and char == ')' and stack[-1] == '(':
                 stack.pop()
@@ -17,5 +17,5 @@ class Solution(object):
                 stack.pop()
             else:
                 return False
-            
+        
         return len(stack) == 0
