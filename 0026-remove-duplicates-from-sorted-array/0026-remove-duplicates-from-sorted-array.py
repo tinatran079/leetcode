@@ -8,10 +8,7 @@ class Solution(object):
         
         for right in range(1, len(nums)):
             if nums[right] != nums[right - 1]:
-                # unqiue value, update
                 nums[left] = nums[right]
                 left += 1
-                
+            
         return left
-        
-        
