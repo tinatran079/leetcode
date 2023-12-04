@@ -4,14 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        maxSum = float('-inf')
-        curSum = 0
+        # keep track of global and cur max of subarray
+        # compare the current index with the max subarray 
+        # at prev index.
         
-        for num in nums:
-            curSum += num
-            maxSum = max(maxSum, curSum)
-            
-            if curSum < 0:
-                curSum = 0
-        return maxSum
+        max_cur = global_max = nums[0]
+        
+        for i in range(1, len(nums)):
+            max_cur = max(nums[i], max_cur + nums[i])
+            if max_cur > global_max:
+                global_max = max_cur
+        return global_max
+    
+    
         
