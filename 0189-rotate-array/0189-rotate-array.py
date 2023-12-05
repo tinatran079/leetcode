@@ -5,12 +5,9 @@ class Solution(object):
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        numsLen = len(nums)
-        
-        k %= numsLen
+        k %= len(nums)
         
         nums.reverse()
         
         nums[:k] = reversed(nums[:k])
-        
         nums[k:] = reversed(nums[k:])
