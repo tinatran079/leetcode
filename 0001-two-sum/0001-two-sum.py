@@ -13,7 +13,8 @@ class Solution(object):
         res = []
         
         for i in range(len(nums)):
-                            # always want j ahead of i
+                            # avoid checking same pair
+                            # want unique pairs
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
                     res.append(i)
