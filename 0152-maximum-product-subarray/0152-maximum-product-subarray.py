@@ -4,17 +4,20 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # find subarray that has the largest product
-        res = nums[0]
-        maxPrdt = nums[0]
-        minPrdt = nums[0]
+        # need to set it to something
+        res = max(nums) 
+        curMin, curMax = 1, 1 # neutral values
         
-        for i in range(1, len(nums)):
-            if nums[i] < 0:
-                maxPrdt, minPrdt = minPrdt, maxPrdt
-                
-            maxPrdt = max(nums[i], maxPrdt*nums[i])
-            minPrdt = min(nums[i], minPrdt*nums[i])
+        # iterate through array
+        for n in nums:
+            if n == 0:
+                # reset
+                curMin, curMax = 1, 1
+                continue # continue to next iteration
             
-            res = max(res, maxPrdt)
+            tmp = curMax * n
+            curMax = max(n*curMax, n * curMin, n)
+            curMin = min(tmp, n * curMin, n) # tmp = curMax before calculated
+            res = max(res, curMax)
+            
         return res
