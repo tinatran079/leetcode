@@ -4,20 +4,21 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # need to set it to something
-        res = max(nums) 
-        curMin, curMax = 1, 1 # neutral values
+        # initialize the res, maxPrdt, minPrdt
+        res = nums[0]
+        maxPrdt = nums[0]
+        minPrdt = nums[0]
         
-        # iterate through array
-        for n in nums:
-            if n == 0:
-                # reset
-                curMin, curMax = 1, 1
-                continue # continue to next iteration
+        # iterate through the array
+        for i in range(1, len(nums)):
+            # if num is negative, swap the max and min prdt so might get larger prdt
+            if nums[i] < 0:
+                minPrdt, maxPrdt = maxPrdt, minPrdt
             
-            tmp = curMax * n
-            curMax = max(n*curMax, n * curMin, n)
-            curMin = min(tmp, n * curMin, n) # tmp = curMax before calculated
-            res = max(res, curMax)
+            # find the max and min of num and num * prdt
+            maxPrdt = max(nums[i], nums[i]*maxPrdt)
+            minPrdt = min(nums[i], nums[i]*minPrdt)
+            
+            res = max(res, maxPrdt)
             
         return res
