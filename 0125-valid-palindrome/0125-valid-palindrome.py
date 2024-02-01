@@ -4,24 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        # remove all non-alpha numeric characters
-        # convert to all lowercase
-        # 2 pointers
+        newString = ""
         
-        fixedS = ''
+        # make a new string that is all lowercase and remove all non-alphanumeric characters
         
         for char in s:
-            if char.isnumeric() or char.isalpha():
-                fixedS += char
+            # O(n)
+            if char.isalpha() or char.isnumeric():
+                newString += char
                 
-        fixedS = fixedS.lower()
+        newString = newString.lower()
         
-        left = 0
-        right = len(fixedS) - 1
-        
-        while left <= right:
-            if fixedS[left] != fixedS[right]:
-                return False
-            left += 1
-            right -= 1
-        return True
+        # reverse
+        return newString == newString[::-1]
