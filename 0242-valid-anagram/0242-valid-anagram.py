@@ -5,4 +5,15 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        return sorted(s) == sorted(t)
+        return self.charCount(s) == self.charCount(t)
+        
+    
+    
+    def charCount(self, char):
+        dict = {}
+        for c in char:
+            if c not in dict:
+                dict[c] = 0
+            dict[c] += 1
+
+        return dict
