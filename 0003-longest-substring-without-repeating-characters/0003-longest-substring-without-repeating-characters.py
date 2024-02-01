@@ -5,20 +5,19 @@ class Solution(object):
         :rtype: int
         """
         res = 0
-        # set for substring window
+        left = 0
         charSet = set()
         
-        #sliding window
-        l = 0
-        
-        for r in range(len(s)):
+        for right in range(len(s)):
             # get duplicate
-            while s[r] in charSet:
-                # update window by removing the left char
-                charSet.remove(s[l])
-                l += 1
-            charSet.add(s[r])
-            res = max(res, r-l+1)
-            
+            while s[right] in charSet:
+                charSet.remove(s[left])
+                left += 1
+                
+
+            # if unique character, add the right char to set and calculate length of window
+            charSet.add(s[right])
+            res = max(res, right-left+1)
+                
         return res
             
