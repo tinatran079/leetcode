@@ -13,7 +13,17 @@ class Solution(object):
             if char.isalpha() or char.isnumeric():
                 newString += char
                 
-        newString = newString.lower()
+        newString = newString.lower() # O(m) - new string
         
-        # reverse
-        return newString == newString[::-1]
+        # 2 ptrs
+        left = 0
+        right = len(newString) - 1
+        
+        while left <= right:
+            if newString[left] != newString[right]:
+                return False
+            else:
+                left += 1
+                right -= 1
+                
+        return True
