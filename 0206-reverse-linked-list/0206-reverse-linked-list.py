@@ -4,21 +4,17 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def reverseList(self, head):
+    def reverseList(self, head, prev=None):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        #       A -> B -> C -> D
-        #   P   C.   N
         
-        current = head 
-        prev = None
+        if head is None:
+            return prev
         
-        while current is not None:
-            next = current.next
-            current.next = prev
-            prev = current 
-            current = next 
-            
-        return prev
+        next = head.next
+        head.next = prev
+        
+        return self.reverseList(next, head)
+        
