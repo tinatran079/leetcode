@@ -11,21 +11,22 @@ class Solution(object):
         :rtype: Optional[ListNode]
         """
         dummy = ListNode()
-        cur = dummy
+        tail = dummy
         
-        while list1 is not None and list2 is not None:
-            if list1.val <= list2.val:
-                cur.next = list1
+        while list1 and list2:
+            if list1.val < list2.val:
+                tail.next = list1
                 list1 = list1.next
             else:
-                cur.next = list2
+                tail.next = list2
                 list2 = list2.next
-            
-            cur = cur.next
-                
+            # update tail pointer
+            tail = tail.next
+        
         if list1 is not None:
-            cur.next = list1
+            tail.next = list1
         if list2 is not None:
-            cur.next = list2
-            
+            tail.next = list2
+        
         return dummy.next
+            
