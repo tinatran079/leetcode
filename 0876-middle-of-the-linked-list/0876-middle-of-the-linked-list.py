@@ -11,8 +11,9 @@ class Solution(object):
         """
         fast = head
         slow = head
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-        return slow
         
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            
+        return slow
