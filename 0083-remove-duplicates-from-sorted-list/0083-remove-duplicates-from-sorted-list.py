@@ -9,16 +9,13 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        values = set()
-        prev = None
-        current = head
+        cur = head
         
-        while current is not None:
-            if current.val in values:
-                prev.next = current.next
-            else:
-                values.add(current.val)
-                prev = current
-            current = current.next
+        while cur is not None:
+            while cur.next and cur.next.val == cur.val:
+                # delete 
+                cur.next = cur.next.next
+            cur = cur.next
         
         return head
+                
