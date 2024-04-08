@@ -9,18 +9,27 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        res = []
+        fast = head
+        slow = head 
         
-        while head:
-            res.append(head.val)
-            head = head.next 
+        # find middle (slow)
+        while fast and fast.next: # until fast is at last node or null
+            fast = fast.next.next
+            slow = slow.next
             
-        l,r = 0, len(res) - 1
-        
-        while l <= r:
-            if res[l] != res[r]:
+        # reverse second half of list
+        prev = None
+        while slow:
+            tmp = slow.next
+            slow.next = prev
+            prev = slow
+            slow = tmp
+            
+        # check if palindrome
+        left, right = head, prev
+        while right:
+            if left.val != right.val:
                 return False
-            l += 1
-            r -= 1
+            left = left.next
+            right = right.next
         return True
-            
