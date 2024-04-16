@@ -4,16 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        dict = {}
+        dict= {}
         res = []
         
-        for num in nums:
-            if num not in dict:
-                dict[num] = 0
-            dict[num] += 1
+        for n in nums:
+            if n not in dict:
+                dict[n] = 0
+            dict[n] += 1
             
-        for n, count in dict.items():
+        for k, count in dict.items():
             if count > 1:
-                res.append(n)
+                res.append(k)
                 
         return res
