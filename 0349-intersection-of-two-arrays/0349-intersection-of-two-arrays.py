@@ -7,15 +7,14 @@ class Solution(object):
         """
         # return an array of their intersection
         
+        my_dict= {}
         res = []
         
-        items = set()
-        
-        for item in nums1:
-            items.add(item)
+        for num in nums1:
+            my_dict[num] = True 
             
-        for num in nums2:
-            if num in items:
-                res.append(num)
-                
+        for n in nums2:
+            if n in my_dict:
+                res.append(n)
         return list(set(res))
+                
