@@ -7,12 +7,13 @@ class Solution(object):
         """
         
         res = []
-        prev = {} # num: index
+        prev = {}
         
         for index, num in enumerate(nums):
             complement = target - num
             if complement in prev:
-                res.append(index)
                 res.append(prev[complement])
-                return res
+                res.append(index)
+                return res 
             prev[num] = index
+            
