@@ -4,15 +4,13 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        dict = {}
-        
+        my_dict = {}
         for char in s:
-            if char not in dict:
-                dict[char] = 0
-            dict[char] += 1
+            if char not in my_dict:
+                my_dict[char] = 0
+            my_dict[char] += 1
             
         for i in range(len(s)):
-            if dict[s[i]] == 1:
-                return i
-        
+            if my_dict[s[i]] == 1:
+                return i 
         return -1
