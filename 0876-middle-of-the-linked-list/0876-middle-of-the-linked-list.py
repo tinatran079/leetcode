@@ -9,10 +9,16 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        slow, fast = head, head 
-        
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+        count = 0
+        cur = head 
+        while cur:
+            count += 1
+            cur = cur.next 
             
-        return slow
+        middle = count // 2 
+        
+        cur = head 
+        for _ in range(middle):
+            cur = cur.next 
+        
+        return cur
