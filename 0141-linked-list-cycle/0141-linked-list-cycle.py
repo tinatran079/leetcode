@@ -11,8 +11,7 @@ class Solution(object):
         :rtype: bool
         """
         visited = set()
-        
-        current = head
+        current = head 
         
         while current:
             if current in visited:
