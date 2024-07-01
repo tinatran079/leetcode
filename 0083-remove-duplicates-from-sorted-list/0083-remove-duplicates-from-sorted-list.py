@@ -9,13 +9,12 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        cur = head
+        cur = head 
         
-        while cur is not None:
+        while cur:
+            # if the cur val & next val same
             while cur.next and cur.next.val == cur.val:
-                # delete 
+                # delete
                 cur.next = cur.next.next
-            cur = cur.next
-        
+            cur = cur.next 
         return head
-                
