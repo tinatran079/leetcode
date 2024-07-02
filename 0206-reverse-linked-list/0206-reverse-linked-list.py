@@ -9,23 +9,18 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        #   1 -> 2 -> 3 -> 4 -> 5
-        #                       P C    N
+        #   A -> B -> C -> D
+        # P C    N
         
-        # initialize prev node
-        # cur = head of linked list
-        # temp variable, next
-        # have cur.next point to prev
-        # update the pointers one to the right
-        # repeat until end of list and return prev
-        
-        prev = None
+        prev = None 
         cur = head
         
-        while cur is not None:
+        while cur:
+            # save the next before breaking cur's pointer
             next = cur.next
+            # reverse cur's pointer back to prev
             cur.next = prev
             prev = cur
-            cur = next
+            cur = next 
             
         return prev
