@@ -6,16 +6,16 @@ class Solution(object):
         """
         stack = []
         
-        for char in s:
-            if char == '(' or char == '[' or char == '{':
-                stack.append(char)
-            elif stack and char == ')' and stack[-1] == '(':
+        for para in s:
+            if para == '(' or para == '{' or para == '[':
+                stack.append(para)
+            elif stack and para == ')' and stack[-1] == '(':
                 stack.pop()
-            elif stack and char == ']' and stack[-1] == '[':
+            elif stack and para == '}' and stack[-1] == '{':
                 stack.pop()
-            elif stack and char == '}' and stack[-1] == '{':
+            elif stack and para == ']' and stack[-1] == '[':
                 stack.pop()
             else:
-                return False
+                return False 
         
         return len(stack) == 0
