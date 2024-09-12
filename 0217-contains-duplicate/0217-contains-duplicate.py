@@ -4,13 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        dict = {}
-        for num in nums:
-            if num not in dict:
-                dict[num] = 0
-            dict[num] += 1
-            
-        for value in dict.values():
-            if value > 1:
+        hashset = set()
+        
+        for n in nums:
+            if n in hashset:
                 return True
+            hashset.add(n)
         return False
