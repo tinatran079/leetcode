@@ -8,19 +8,9 @@ class Solution(object):
         # k could be greater than length of array
         k = k % len(nums)
         
-        #rev entire array
-        l, r = 0, len(nums) -1
-        while l < r:
-            nums[l], nums[r] = nums[r], nums[l]
-            l, r = l +1, r -1
-            
-        #rev sep segments
-        l, r = 0, k - 1
-        while l < r:
-            nums[l], nums[r] = nums[r], nums[l]
-            l, r = l +1, r -1
-            
-        l, r = k , len(nums) - 1
-        while l < r:
-            nums[l], nums[r] = nums[r], nums[l]
-            l, r = l +1, r -1
+        nums.reverse()
+        
+        nums[:k] = reversed(nums[:k])
+        nums[k:] = reversed(nums[k:])
+        
+        
