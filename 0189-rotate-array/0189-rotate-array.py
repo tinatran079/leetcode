@@ -5,9 +5,22 @@ class Solution(object):
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        k %= len(nums)
+        # k could be greater than length of array
+        k = k % len(nums)
         
-        nums.reverse()
-        
-        nums[:k] = reversed(nums[:k])
-        nums[k:] = reversed(nums[k:])
+        #rev entire array
+        l, r = 0, len(nums) -1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l, r = l +1, r -1
+            
+        #rev sep segments
+        l, r = 0, k - 1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l, r = l +1, r -1
+            
+        l, r = k , len(nums) - 1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l, r = l +1, r -1
