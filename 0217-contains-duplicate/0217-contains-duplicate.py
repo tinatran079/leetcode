@@ -4,4 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        return len(nums) != len(set(nums))
+        dict = {}
+        for num in nums:
+            if num not in dict:
+                dict[num] = 0
+            dict[num] += 1
+            
+        for value in dict.values():
+            if value > 1:
+                return True
+        return False
