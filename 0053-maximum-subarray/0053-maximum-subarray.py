@@ -4,14 +4,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # go through the array and keep count of running total,
-        # if the total is < 0, start over 
-        # keep checking for the max sum
+        #initialize maxSum to first num
+        #initialize curSum to 0 since this is what we are computing
         
-        maxCur = globalMax = nums[0]
+        # iterate through nums
+        # if curSum is neg, curSum back to zero and we start new subarray
+        # else, keep adding num to cur SUm
+        # compute the maxSum
+        # return maxSum
         
-        for i in range(1, len(nums)):
-            maxCur = max(nums[i], maxCur + nums[i])
-            if maxCur > globalMax:
-                globalMax = maxCur
-        return globalMax
+        maxSum = nums[0]
+        curSum = 0
+        
+        for num in nums:
+            if curSum < 0:
+                curSum = 0
+            curSum += num
+            maxSum = max(curSum, maxSum)
+        
+        return maxSum
