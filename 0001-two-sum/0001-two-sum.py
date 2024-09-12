@@ -5,25 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # input: array of numbers
-        # return indices of num1 + num2 = target
-        
-        # optimized using a hash map
-        # num1 + num2 = target
-        # complement = target - num
-        # as loop through array, find if this is the case
-        # use enumrate for index and num
-        
+        prev = {}
         result = []
-        seen = {}
+        
         for index, num in enumerate(nums):
             complement = target - num
-            # if complement is in hash map, found it!
-            if complement in seen:
-                result.append(seen[complement])
+            # check to see if complement exists
+            if complement in prev:
+                result.append(prev[complement])
                 result.append(index)
             else:
-                seen[num] = index
+                prev[num] = index
         
         return result
-        
