@@ -5,27 +5,17 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # given an array of integers, and integer target
-        # return indices of 2 #s that add up to target, in an list
-        # num1 + num2 = target
-        # complement = target - num
-        # have a hash map to keep track of num and index
-        # use enumerate to access index and number
-        # loop through nums
-        # calculate complment
-        # if complement is in hash map, then we know we found the 2 #'s
-        # append the index from hash map and current indx of num
-        # if not, add the cur num and index to hash map
+        # input: array of numbers
+        # return indices of num1 + num2 = target
         
-        res = []
-        prev = {}
+        # nested loop to find pairs that add up to target
+        result = []
         
-        for index, num in enumerate(nums):
-            complement = target - num
-            if complement in prev:
-                res.append(prev[complement])
-                res.append(index)
-            prev[num] = index
-            
-        return res
-            
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                total = nums[i] + nums[j]
+                if total == target:
+                    result.append(i)
+                    result.append(j)
+                    
+        return result
