@@ -8,14 +8,22 @@ class Solution(object):
         # input: array of numbers
         # return indices of num1 + num2 = target
         
-        # nested loop to find pairs that add up to target
-        result = []
+        # optimized using a hash map
+        # num1 + num2 = target
+        # complement = target - num
+        # as loop through array, find if this is the case
+        # use enumrate for index and num
         
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                total = nums[i] + nums[j]
-                if total == target:
-                    result.append(i)
-                    result.append(j)
-                    
+        result = []
+        seen = {}
+        for index, num in enumerate(nums):
+            complement = target - num
+            # if complement is in hash map, found it!
+            if complement in seen:
+                result.append(seen[complement])
+                result.append(index)
+            else:
+                seen[num] = index
+        
         return result
+        
