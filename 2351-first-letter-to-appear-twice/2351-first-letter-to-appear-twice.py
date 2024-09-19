@@ -4,11 +4,11 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        map = {}
+        seen = set()
         
-        for i in range(len(s)):
-            if s[i] in map:
-                return s[i]
-            else:
-                map[s[i]] = i
+        for char in s:
+            if char in seen:
+                return char
+            seen.add(char)
+       
                 
