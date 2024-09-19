@@ -13,5 +13,5 @@ class Solution(object):
             
         for i in range(len(s)):
             if my_dict[s[i]] == 1:
-                return i
+                return i 
         return -1
