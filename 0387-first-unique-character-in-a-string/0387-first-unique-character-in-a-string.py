@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: int
         """
         my_dict = {}
+        
         for char in s:
             if char not in my_dict:
                 my_dict[char] = 0
@@ -12,5 +13,5 @@ class Solution(object):
             
         for i in range(len(s)):
             if my_dict[s[i]] == 1:
-                return i 
+                return i
         return -1
