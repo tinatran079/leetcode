@@ -4,14 +4,20 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        my_dict = {}
+        # find first non-repeating character and return its index
+        # have a dictionary for char and count
+        # loop through input with range
+        # if character in dict = 1, return index, else -1
+        
+        dict = {}
         
         for char in s:
-            if char not in my_dict:
-                my_dict[char] = 0
-            my_dict[char] += 1
+            if char not in dict:
+                dict[char] = 0
+            dict[char] += 1
             
         for i in range(len(s)):
-            if my_dict[s[i]] == 1:
-                return i 
-        return - 1
+            if dict[s[i]] == 1:
+                return i
+        
+        return -1
